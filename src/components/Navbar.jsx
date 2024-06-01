@@ -23,6 +23,9 @@ const Navbar = () => {
           <Link as={NavLink} to="/logout" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
             Logout
           </Link>
+          <Link as={NavLink} to="/admin" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
+            Admin
+          </Link>
         </Flex>
       </Flex>
     </Box>
