@@ -24,7 +24,7 @@ const Index = () => {
 
   return (
     <Box
-      bgImage="url('/images/rv-immersive-background.jpg')"
+      bgImage="url('/images/rv-background.jpg')"
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"
