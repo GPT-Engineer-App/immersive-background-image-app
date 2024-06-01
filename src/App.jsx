@@ -3,6 +3,7 @@ import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Logout from "./pages/Logout.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/logout" element={<Logout />} />
+          <Route exact path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </>
