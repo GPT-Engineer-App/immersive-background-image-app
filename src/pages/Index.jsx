@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, Input, Link, Text } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -8,6 +8,7 @@ const Index = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [greeting, setGreeting] = useState("");
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -22,6 +23,22 @@ const Index = () => {
     }
   };
 
+  const getGreeting = () => {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      return "Good Morning";
+    } else if (currentHour < 18) {
+      return "Good Afternoon";
+    } else {
+      return "Good Evening";
+    }
+  };
+
+  useEffect(() => {
+    const user = "Cannon"; // Replace with actual logic to fetch the logged-in user's name
+    setGreeting(`${getGreeting()} ${user}`);
+  }, []);
+
   return (
     <Box
       bgImage="url('/images/rv-background.jpg')"
@@ -35,7 +52,7 @@ const Index = () => {
       color="white"
     >
       <Box bg="rgba(0, 0, 0, 0.7)" p={8} borderRadius="md" textAlign="center">
-        <Heading mb={6} color="orange.400">Good Morning Cannon</Heading>
+        <Heading mb={6} color="orange.400">{greeting}</Heading>
         <Input 
           placeholder="Username" 
           mb={3} 
