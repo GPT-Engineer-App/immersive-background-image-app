@@ -35,7 +35,7 @@ const Index = () => {
       color="white"
     >
       <Box bg="rgba(0, 0, 0, 0.7)" p={8} borderRadius="md" textAlign="center">
-        <Heading mb={6} color="orange.400">Welcome to RV Dealership</Heading>
+        <Heading mb={6} color="orange.400">Good Morning Cannon</Heading>
         <Input 
           placeholder="Username" 
           mb={3} 
