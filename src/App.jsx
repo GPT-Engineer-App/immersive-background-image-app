@@ -14,6 +14,8 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
+  console.log("App component rendered");
+
   return (
     <>
       <Router>
