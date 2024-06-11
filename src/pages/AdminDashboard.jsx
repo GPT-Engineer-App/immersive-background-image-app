@@ -22,7 +22,7 @@ const AdminDashboard = () => {
   const closeCalendar = () => setIsCalendarOpen(false);
 
   return (
-    <Box>
+    <Box bg="gray.100">
       <AdminNavbar />
 
       <Flex className="main-content" p={4}>
@@ -30,19 +30,19 @@ const AdminDashboard = () => {
 
         <Box className="content" flex="1" p={4}>
           <AdminCard title="User Management">
-            [User List with Actions]
+            <Text color="black">[User List with Actions]</Text>
           </AdminCard>
           <AdminCard title="RV Inventory Management">
-            [Inventory List with Actions]
+            <Text color="black">[Inventory List with Actions]</Text>
           </AdminCard>
           <AdminCard title="Sales Analytics and Reports">
-            [Charts and Graphs]
+            <Text color="black">[Charts and Graphs]</Text>
           </AdminCard>
           <AdminCard title="Calendar">
             <Button className="calendar-button" onClick={openCalendar}>Open Calendar</Button>
           </AdminCard>
           <AdminCard title="Notification Center">
-            [Notifications]
+            <Text color="black">[Notifications]</Text>
           </AdminCard>
         </Box>
       </Flex>
