@@ -1,5 +1,8 @@
-import { Box, Flex, Heading, Text, Button, Link } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 import { useState } from "react";
+import AdminNavbar from "../components/AdminNavbar";
+import AdminSidebar from "../components/AdminSidebar";
+import AdminCard from "../components/AdminCard";
 
 const AdminDashboard = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -9,64 +12,27 @@ const AdminDashboard = () => {
 
   return (
     <Box>
-      <Box className="navbar" bg="gray.800" px={4} py={2} color="white">
-        <Flex justify="space-between" align="center">
-          <Flex>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Dashboard
-            </Link>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Users
-            </Link>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Inventory
-            </Link>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Reports
-            </Link>
-          </Flex>
-          <Flex>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Profile
-            </Link>
-            <Link href="#" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
-              Logout
-            </Link>
-          </Flex>
-        </Flex>
-      </Box>
+      <AdminNavbar />
 
       <Flex className="main-content" p={4}>
-        <Box className="sidebar" width="250px" bg="gray.700" p={4} color="white">
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Leads Overview</Heading>
-            <Text>New: XX</Text>
-            <Text>Active: XX</Text>
-            <Text>Closed: XX</Text>
-          </Box>
-        </Box>
+        <AdminSidebar />
 
         <Box className="content" flex="1" p={4}>
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>User Management</Heading>
-            <Text>[User List with Actions]</Text>
-          </Box>
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>RV Inventory Management</Heading>
-            <Text>[Inventory List with Actions]</Text>
-          </Box>
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Sales Analytics and Reports</Heading>
-            <Text>[Charts and Graphs]</Text>
-          </Box>
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Calendar</Heading>
+          <AdminCard title="User Management">
+            [User List with Actions]
+          </AdminCard>
+          <AdminCard title="RV Inventory Management">
+            [Inventory List with Actions]
+          </AdminCard>
+          <AdminCard title="Sales Analytics and Reports">
+            [Charts and Graphs]
+          </AdminCard>
+          <AdminCard title="Calendar">
             <Button className="calendar-button" onClick={openCalendar}>Open Calendar</Button>
-          </Box>
-          <Box className="card" bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Notification Center</Heading>
-            <Text>[Notifications]</Text>
-          </Box>
+          </AdminCard>
+          <AdminCard title="Notification Center">
+            [Notifications]
+          </AdminCard>
         </Box>
       </Flex>
 
