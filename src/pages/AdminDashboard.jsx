@@ -1,10 +1,21 @@
 import { Box, Flex, Button, Heading } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
 
+import { useAuth } from "../hooks/useAuth";
+
 const AdminDashboard = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user || user.role !== "admin") {
+      navigate("/login");
+    }
+  }, [user]);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const openCalendar = () => setIsCalendarOpen(true);
