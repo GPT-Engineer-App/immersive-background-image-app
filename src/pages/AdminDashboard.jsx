@@ -1,10 +1,17 @@
 import { Box, Flex, Button, Heading } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
 
 const AdminDashboard = () => {
+  useEffect(() => {
+    console.log("AdminDashboard component mounted");
+    return () => {
+      console.log("AdminDashboard component unmounted");
+    };
+  }, []);
+
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const openCalendar = () => setIsCalendarOpen(true);

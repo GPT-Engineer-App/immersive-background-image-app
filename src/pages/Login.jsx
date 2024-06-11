@@ -15,15 +15,20 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    // Replace with actual authentication logic
+    console.log("Attempting to login with username:", username);
+
     if (username === "admin" && password === "password123") {
       login({ username, role: "admin" });
+      console.log("Admin login successful");
     } else if (username === "manager" && password === "password123") {
       login({ username, role: "manager" });
+      console.log("Manager login successful");
     } else if (username === "salesman" && password === "password123") {
       login({ username, role: "salesman" });
+      console.log("Salesman login successful");
     } else {
       setErrorMessage("Invalid username or password");
+      console.log("Login failed: Invalid username or password");
     }
   };
 

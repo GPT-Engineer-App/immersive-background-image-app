@@ -6,7 +6,7 @@ const AdminNavbar = () => {
     <Box bg="gray.800" px={4} py={2} color="white">
       <Flex justify="space-between" align="center">
         <Flex>
-          <Link as={NavLink} to="/admin/dashboard" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
+          <Link as={NavLink} to="/admin" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
             Dashboard
           </Link>
           <Link as={NavLink} to="/admin/users" px={2} py={1} rounded="md" _hover={{ textDecoration: "none", bg: "gray.700" }}>
