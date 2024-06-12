@@ -1,7 +1,8 @@
-import { Box, Flex, Button, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
+import { client } from "../../lib/crud";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
 
@@ -16,7 +17,28 @@ const AdminDashboard = () => {
       navigate("/login");
     }
   }, [user]);
+  const [kpiData, setKpiData] = useState({
+    totalLeads: 0,
+    totalSales: 0,
+    conversionRate: 0,
+  });
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchKpiData = async () => {
+      const totalLeads = await client.get("kpi:totalLeads");
+      const totalSales = await client.get("kpi:totalSales");
+      const conversionRate = await client.get("kpi:conversionRate");
+
+      setKpiData({
+        totalLeads: totalLeads?.[0]?.value || 0,
+        totalSales: totalSales?.[0]?.value || 0,
+        conversionRate: conversionRate?.[0]?.value || 0,
+      });
+    };
+
+    fetchKpiData();
+  }, []);
 
   const openCalendar = () => setIsCalendarOpen(true);
   const closeCalendar = () => setIsCalendarOpen(false);
@@ -29,6 +51,17 @@ const AdminDashboard = () => {
         <AdminSidebar />
 
         <Box className="content" flex="1" p={4}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
+            <AdminCard title="Total Leads">
+              <Text color="black">{kpiData.totalLeads}</Text>
+            </AdminCard>
+            <AdminCard title="Total Sales">
+              <Text color="black">{kpiData.totalSales}</Text>
+            </AdminCard>
+            <AdminCard title="Conversion Rate">
+              <Text color="black">{kpiData.conversionRate}%</Text>
+            </AdminCard>
+          </SimpleGrid>
           <AdminCard title="User Management">
             <Text color="black">[User List with Actions]</Text>
           </AdminCard>
