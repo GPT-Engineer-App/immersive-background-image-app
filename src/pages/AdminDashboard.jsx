@@ -13,8 +13,13 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || user.role !== "admin") {
-      navigate("/login");
+    console.log("Checking user authentication and role...");
+    try {
+      if (!user || user.role !== "admin") {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error checking user authentication and role:", error);
     }
   }, [user]);
   const [kpiData, setKpiData] = useState({
@@ -26,15 +31,26 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchKpiData = async () => {
-      const totalLeads = await client.get("kpi:totalLeads");
-      const totalSales = await client.get("kpi:totalSales");
-      const conversionRate = await client.get("kpi:conversionRate");
+      try {
+        console.log("Fetching KPI data...");
+        const totalLeads = await client.get("kpi:totalLeads");
+        const totalSales = await client.get("kpi:totalSales");
+        const conversionRate = await client.get("kpi:conversionRate");
 
-      setKpiData({
-        totalLeads: totalLeads?.[0]?.value || 0,
-        totalSales: totalSales?.[0]?.value || 0,
-        conversionRate: conversionRate?.[0]?.value || 0,
-      });
+        setKpiData({
+          totalLeads: totalLeads?.[0]?.value || 0,
+          totalSales: totalSales?.[0]?.value || 0,
+          conversionRate: conversionRate?.[0]?.value || 0,
+        });
+        console.log("KPI data fetched successfully:", { totalLeads, totalSales, conversionRate });
+      } catch (error) {
+        console.error("Error fetching KPI data:", error);
+        setKpiData({
+          totalLeads: "Error",
+          totalSales: "Error",
+          conversionRate: "Error",
+        });
+      }
     };
 
     fetchKpiData();
@@ -53,13 +69,13 @@ const AdminDashboard = () => {
         <Box className="content" flex="1" p={4}>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
             <AdminCard title="Total Leads">
-              <Text color="black">{kpiData.totalLeads}</Text>
+              <Text color="black">{kpiData.totalLeads !== "Error" ? kpiData.totalLeads : "Failed to fetch data"}</Text>
             </AdminCard>
             <AdminCard title="Total Sales">
-              <Text color="black">{kpiData.totalSales}</Text>
+              <Text color="black">{kpiData.totalSales !== "Error" ? kpiData.totalSales : "Failed to fetch data"}</Text>
             </AdminCard>
             <AdminCard title="Conversion Rate">
-              <Text color="black">{kpiData.conversionRate}%</Text>
+              <Text color="black">{kpiData.conversionRate !== "Error" ? `${kpiData.conversionRate}%` : "Failed to fetch data"}</Text>
             </AdminCard>
           </SimpleGrid>
           <AdminCard title="User Management">
