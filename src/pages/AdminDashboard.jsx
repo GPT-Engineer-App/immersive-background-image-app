@@ -17,6 +17,7 @@ const AdminDashboard = () => {
       navigate("/login");
     }
   }, [user]);
+
   const [kpiData, setKpiData] = useState({
     totalLeads: 0,
     totalSales: 0,
@@ -26,15 +27,20 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchKpiData = async () => {
-      const totalLeads = await client.get("kpi:totalLeads");
-      const totalSales = await client.get("kpi:totalSales");
-      const conversionRate = await client.get("kpi:conversionRate");
+      try {
+        console.log("Fetching KPI data...");
+        const totalLeads = await client.get("kpi:totalLeads");
+        const totalSales = await client.get("kpi:totalSales");
+        const conversionRate = await client.get("kpi:conversionRate");
 
-      setKpiData({
-        totalLeads: totalLeads?.[0]?.value || 0,
-        totalSales: totalSales?.[0]?.value || 0,
-        conversionRate: conversionRate?.[0]?.value || 0,
-      });
+        setKpiData({
+          totalLeads: totalLeads?.[0]?.value || 0,
+          totalSales: totalSales?.[0]?.value || 0,
+          conversionRate: conversionRate?.[0]?.value || 0,
+        });
+      } catch (error) {
+        console.error("Error fetching KPI data:", error);
+      }
     };
 
     fetchKpiData();
