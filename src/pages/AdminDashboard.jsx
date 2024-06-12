@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, SimpleGrid, Button } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
@@ -71,8 +71,8 @@ const AdminDashboard = () => {
           <AdminCard title="Sales Analytics and Reports">
             <Text color="black">[Charts and Graphs]</Text>
           </AdminCard>
-          <AdminCard title="Calendar">
-            <Button className="calendar-button" onClick={openCalendar}>Open Calendar</Button>
+          <AdminCard title="Calendar" mt={4}>
+            <Button colorScheme="blue" onClick={openCalendar}>Open Calendar</Button>
           </AdminCard>
           <AdminCard title="Notification Center">
             <Text color="black">[Notifications]</Text>
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
           <Box className="calendar-modal" position="fixed" top="50%" left="50%" transform="translate(-50%, -50%)" bg="white" color="black" p={4} borderRadius="md" boxShadow="md" zIndex="1000">
             <Heading size="md" mb={4}>Calendar</Heading>
             <Box id="calendar">[Calendar Component]</Box>
-            <Button mt={4} onClick={closeCalendar}>Close</Button>
+            <Button colorScheme="red" mt={4} onClick={closeCalendar}>Close</Button>
           </Box>
         </>
       )}
