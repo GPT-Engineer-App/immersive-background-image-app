@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 import AdminNavbar from "../components/AdminNavbar";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
@@ -12,26 +12,28 @@ const SalesmanDashboard = () => {
         <AdminSidebar />
 
         <Box className="content" flex="1" p={4}>
-          <AdminCard title="KPI Summary">
-            <Text>Number of Leads: XX</Text>
-            <Text>Conversion Rate: XX%</Text>
-            <Text>Total Sales: $XXX</Text>
-          </AdminCard>
-          <AdminCard title="Recent Leads">
-            [Recent Leads List]
-          </AdminCard>
-          <AdminCard title="Sales Pipeline">
-            [Sales Pipeline Visualization]
-          </AdminCard>
-          <AdminCard title="Upcoming Appointments/Tasks">
-            [Upcoming Appointments/Tasks List]
-          </AdminCard>
-          <AdminCard title="Lead Management">
-            [Lead Management Actions]
-          </AdminCard>
-          <AdminCard title="Customer Interaction">
-            [Customer Interaction Tracking]
-          </AdminCard>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+            <AdminCard title="KPI Summary">
+              <Text>Number of Leads: XX</Text>
+              <Text>Conversion Rate: XX%</Text>
+              <Text>Total Sales: $XXX</Text>
+            </AdminCard>
+            <AdminCard title="Recent Leads">
+              [Recent Leads List]
+            </AdminCard>
+            <AdminCard title="Sales Pipeline">
+              [Sales Pipeline Visualization]
+            </AdminCard>
+            <AdminCard title="Upcoming Appointments/Tasks">
+              [Upcoming Appointments/Tasks List]
+            </AdminCard>
+            <AdminCard title="Lead Management">
+              [Lead Management Actions]
+            </AdminCard>
+            <AdminCard title="Customer Interaction">
+              [Customer Interaction Tracking]
+            </AdminCard>
+          </SimpleGrid>
         </Box>
       </Flex>
     </Box>
