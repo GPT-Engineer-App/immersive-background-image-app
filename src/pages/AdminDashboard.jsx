@@ -9,6 +9,8 @@ import AdminCard from "../components/AdminCard";
 import { useAuth } from "../hooks/useAuth";
 
 const AdminDashboard = () => {
+  console.log("AdminDashboard component rendered");
+
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -77,7 +79,7 @@ const AdminDashboard = () => {
               <Text color="black">{kpiData.totalSales}</Text>
             </AdminCard>
             <AdminCard title="Conversion Rate">
-              <Text color="black">{kpiData.conversionRate}%</Text>
+              <Text color="black">{kpiData.totalLeads === "Error" ? "Error fetching data" : `${kpiData.conversionRate}%`}</Text>
             </AdminCard>
           </SimpleGrid>
           <AdminCard title="User Management">
