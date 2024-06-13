@@ -24,6 +24,7 @@ const AdminDashboard = () => {
     conversionRate: 0,
   });
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
     const fetchKpiData = async () => {
@@ -44,6 +45,12 @@ const AdminDashboard = () => {
     };
 
     fetchKpiData();
+  }, []);
+
+  useEffect(() => {
+    const date = new Date();
+    const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    setCurrentDate(formattedDate);
   }, []);
 
   const openCalendar = () => setIsCalendarOpen(true);
@@ -78,7 +85,9 @@ const AdminDashboard = () => {
             <Text color="black">[Charts and Graphs]</Text>
           </AdminCard>
           <AdminCard title="Calendar" mt={4}>
-            <Button colorScheme="blue" onClick={openCalendar}>Open Calendar</Button>
+            <Box onClick={openCalendar} cursor="pointer">
+              <Text color="black">{currentDate}</Text>
+            </Box>
           </AdminCard>
           <AdminCard title="Notification Center">
             <Text color="black">[Notifications]</Text>
@@ -91,7 +100,9 @@ const AdminDashboard = () => {
           <Box className="modal-overlay" position="fixed" top="0" left="0" width="100%" height="100%" bg="rgba(0, 0, 0, 0.5)" zIndex="999" onClick={closeCalendar}></Box>
           <Box className="calendar-modal" position="fixed" top="50%" left="50%" transform="translate(-50%, -50%)" bg="white" color="black" p={4} borderRadius="md" boxShadow="md" zIndex="1000">
             <Heading size="md" mb={4}>Calendar</Heading>
-            <Box id="calendar">[Calendar Component]</Box>
+            <Box id="calendar">
+              <Text>Calendar Component</Text>
+            </Box>
             <Button colorScheme="red" mt={4} onClick={closeCalendar}>Close</Button>
           </Box>
         </>
