@@ -2,9 +2,18 @@ import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import SalesmanNavbar from "../components/SalesmanNavbar";
 import SalesmanSidebar from "../components/SalesmanSidebar";
-import AdminCard from "../components/AdminCard";
 
 import { client } from "../../lib/crud";
+import { Box, Heading, Text } from "@chakra-ui/react";
+
+const SalesmanCard = ({ title, children }) => {
+  return (
+    <Box bg="gray.600" p={4} mb={4} borderRadius="md">
+      <Heading size="md" mb={2}>{title}</Heading>
+      <Text>{children}</Text>
+    </Box>
+  );
+};
 
 const SalesmanDashboard = () => {
   const [kpiData, setKpiData] = useState({
@@ -42,31 +51,31 @@ const SalesmanDashboard = () => {
 
         <Box className="content" flex="1" p={4}>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
-            <AdminCard title="Number of Leads">
+            <SalesmanCard title="Number of Leads">
               <Text color="black">{kpiData.numberOfLeads}</Text>
-            </AdminCard>
-            <AdminCard title="Conversion Rate">
+            </SalesmanCard>
+            <SalesmanCard title="Conversion Rate">
               <Text color="black">{kpiData.conversionRate}%</Text>
-            </AdminCard>
-            <AdminCard title="Total Sales">
+            </SalesmanCard>
+            <SalesmanCard title="Total Sales">
               <Text color="black">{kpiData.totalSales}</Text>
-            </AdminCard>
+            </SalesmanCard>
           </SimpleGrid>
-          <AdminCard title="Recent Leads">
+          <SalesmanCard title="Recent Leads">
             <Text color="black">[Recent Leads List]</Text>
-          </AdminCard>
-          <AdminCard title="Sales Pipeline">
+          </SalesmanCard>
+          <SalesmanCard title="Sales Pipeline">
             <Text color="black">[Sales Pipeline Visualization]</Text>
-          </AdminCard>
-          <AdminCard title="Upcoming Appointments/Tasks">
+          </SalesmanCard>
+          <SalesmanCard title="Upcoming Appointments/Tasks">
             <Text color="black">[Upcoming Appointments/Tasks List]</Text>
-          </AdminCard>
-          <AdminCard title="Lead Management">
+          </SalesmanCard>
+          <SalesmanCard title="Lead Management">
             <Text color="black">[Lead Management Actions]</Text>
-          </AdminCard>
-          <AdminCard title="Customer Interaction">
+          </SalesmanCard>
+          <SalesmanCard title="Customer Interaction">
             <Text color="black">[Customer Interaction Tracking]</Text>
-          </AdminCard>
+          </SalesmanCard>
         </Box>
       </Flex>
     </Box>
