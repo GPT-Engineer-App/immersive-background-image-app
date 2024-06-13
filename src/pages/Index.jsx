@@ -16,7 +16,7 @@ const Index = () => {
   };
 
   const handleLogin = () => {
-    if (username === "user" && password === "password123") {
+    if (username === "admin" && password === "password123") {
       navigate("/profile");
     } else {
       setErrorMessage("Invalid username or password");
