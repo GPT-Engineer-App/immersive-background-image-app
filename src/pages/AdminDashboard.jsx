@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Text, SimpleGrid, Button } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import SimpleCalendar from "../components/SimpleCalendar";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import { client } from "../../lib/crud";
@@ -47,7 +48,9 @@ const AdminDashboard = () => {
   }, []);
 
   const openCalendar = () => setIsCalendarOpen(true);
-  const closeCalendar = () => setIsCalendarOpen(false);
+  const closeCalendar = () => {
+    setIsCalendarOpen(false);
+  };
 
   return (
     <Box bg="gray.100">
