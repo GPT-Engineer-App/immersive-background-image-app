@@ -35,7 +35,7 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const user = "Alex"; // Replace with actual logic to fetch the logged-in user's name
+    const user = "Cannon"; // Replace with actual logic to fetch the logged-in user's name
     setGreeting(`${getGreeting()} ${user}`);
   }, []);
 
