@@ -28,8 +28,8 @@ function App() {
           <Route exact path="/leads" element={<PrivateRoute><Leads /></PrivateRoute>} />
           <Route exact path="/appointments" element={<PrivateRoute><Appointments /></PrivateRoute>} />
           <Route exact path="/csv-upload" element={<PrivateRoute><CsvUpload /></PrivateRoute>} />
-          <Route exact path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
         </Routes>
       </Router>
     </>
