@@ -1,10 +1,9 @@
-import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, Text, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import SalesmanNavbar from "../components/SalesmanNavbar";
 import SalesmanSidebar from "../components/SalesmanSidebar";
 
 import { client } from "../../lib/crud";
-import { Box, Heading, Text } from "@chakra-ui/react";
 
 const SalesmanCard = ({ title, children }) => {
   return (
