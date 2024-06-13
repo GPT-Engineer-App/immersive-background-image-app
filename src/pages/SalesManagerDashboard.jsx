@@ -1,12 +1,12 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import AdminSidebar from "../components/AdminSidebar";
+import SalesmanSidebar from "../components/SalesmanSidebar";
 import AdminCard from "../components/AdminCard";
 
 const SalesManagerDashboard = () => {
   return (
     <Box>
       <Flex className="main-content" p={4}>
-        <AdminSidebar />
+        <SalesmanSidebar />
 
         <Box className="content" flex="1" p={4}>
           <AdminCard title="KPI Summary">
