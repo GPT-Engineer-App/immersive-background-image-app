@@ -9,7 +9,6 @@ import Leads from "./pages/Leads.jsx";
 import Appointments from "./pages/Appointments.jsx";
 import CsvUpload from "./pages/CsvUpload.jsx";
 import Login from "./pages/Login.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import Navbar from "./components/Navbar.jsx";
 
@@ -29,7 +28,6 @@ function App() {
           <Route exact path="/appointments" element={<PrivateRoute><Appointments /></PrivateRoute>} />
           <Route exact path="/csv-upload" element={<PrivateRoute><CsvUpload /></PrivateRoute>} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
         </Routes>
       </Router>
     </>
