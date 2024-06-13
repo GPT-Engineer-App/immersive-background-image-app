@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, SimpleGrid } from "@chakra-ui/react";
 import SalesmanNavbar from "../components/SalesmanNavbar";
 import SalesmanSidebar from "../components/SalesmanSidebar";
-import AdminCard from "../components/AdminCard";
+import SalesmanCard from "../components/SalesmanCard";
 
 const SalesManagerDashboard = () => {
   return (
@@ -12,32 +12,15 @@ const SalesManagerDashboard = () => {
         <SalesmanSidebar />
 
         <Box className="content" flex="1" p={4}>
-          <AdminCard title="KPI Summary">
-            <Text>Total Sales: $XXX</Text>
-            <Text>Conversion Rate: XX%</Text>
-            <Text>Average Deal Size: $XXX</Text>
-          </AdminCard>
-          <AdminCard title="Recent Leads">
-            [Recent Leads List]
-          </AdminCard>
-          <AdminCard title="Sales Pipeline">
-            [Sales Pipeline Visualization]
-          </AdminCard>
-          <AdminCard title="Upcoming Appointments/Tasks">
-            [Upcoming Appointments/Tasks List]
-          </AdminCard>
-          <AdminCard title="Salesperson Performance">
-            [Salesperson Performance Metrics]
-          </AdminCard>
-          <AdminCard title="Lead Source Performance">
-            [Lead Source Performance Visualization]
-          </AdminCard>
-          <AdminCard title="Lead Assignment">
-            [Lead Assignment Status]
-          </AdminCard>
-          <AdminCard title="Email Marketing">
-            [Upcoming Automated Marketing Emails]
-          </AdminCard>
+          <SalesmanCard title="Number of Leads">
+            <Text color="black">{kpiData.numberOfLeads}</Text>
+          </SalesmanCard>
+          <SalesmanCard title="Conversion Rate">
+            <Text color="black">{kpiData.conversionRate}%</Text>
+          </SalesmanCard>
+          <SalesmanCard title="Total Sales">
+            <Text color="black">{kpiData.totalSales}</Text>
+          </SalesmanCard>
         </Box>
       </Flex>
     </Box>
