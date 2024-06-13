@@ -1,18 +1,10 @@
-import { Box, Flex, Text, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import SalesmanNavbar from "../components/SalesmanNavbar";
 import SalesmanSidebar from "../components/SalesmanSidebar";
+import SalesmanCard from "../components/SalesmanCard";
 
 import { client } from "../../lib/crud";
-
-const SalesmanCard = ({ title, children }) => {
-  return (
-    <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-      <Heading size="md" mb={2}>{title}</Heading>
-      <Text>{children}</Text>
-    </Box>
-  );
-};
 
 const SalesmanDashboard = () => {
   const [kpiData, setKpiData] = useState({
