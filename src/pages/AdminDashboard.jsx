@@ -13,11 +13,9 @@ const AdminDashboard = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user || user.role !== "admin") {
-      navigate("/login");
-    }
-  }, [user]);
+  if (!user || user.role !== "admin") {
+    navigate("/login");
+  }
 
   const [kpiData, setKpiData] = useState({
     totalLeads: 0,
@@ -26,26 +24,24 @@ const AdminDashboard = () => {
   });
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchKpiData = async () => {
-      try {
-        console.log("Fetching KPI data...");
-        const totalLeads = await client.get("kpi:totalLeads");
-        const totalSales = await client.get("kpi:totalSales");
-        const conversionRate = await client.get("kpi:conversionRate");
+  const fetchKpiData = async () => {
+    try {
+      console.log("Fetching KPI data...");
+      const totalLeads = await client.get("kpi:totalLeads");
+      const totalSales = await client.get("kpi:totalSales");
+      const conversionRate = await client.get("kpi:conversionRate");
 
-        setKpiData({
-          totalLeads: totalLeads?.[0]?.value || 0,
-          totalSales: totalSales?.[0]?.value || 0,
-          conversionRate: conversionRate?.[0]?.value || 0,
-        });
-      } catch (error) {
-        console.error("Error fetching KPI data:", error);
-      }
-    };
+      setKpiData({
+        totalLeads: totalLeads?.[0]?.value || 0,
+        totalSales: totalSales?.[0]?.value || 0,
+        conversionRate: conversionRate?.[0]?.value || 0,
+      });
+    } catch (error) {
+      console.error("Error fetching KPI data:", error);
+    }
+  };
 
-    fetchKpiData();
-  }, []);
+  fetchKpiData();
 
   const openCalendar = () => setIsCalendarOpen(true);
   const closeCalendar = () => {
