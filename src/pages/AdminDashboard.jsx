@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import { useState, useEffect } from 'react';
 import { Box, Button, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import Calendar from 'react-calendar';
@@ -51,7 +50,7 @@ const AdminDashboard = () => {
 
   const openCalendar = () => setIsCalendarOpen(true);
   const closeCalendar = () => setIsCalendarOpen(false);
-  const formattedDate = format(selectedDate, 'dd-MM-yyyy');
+  const formattedDate = `${selectedDate.getDate()}-${selectedDate.getMonth() + 1}-${selectedDate.getFullYear()}`;
 
   return (
     <Box bg="gray.100">
