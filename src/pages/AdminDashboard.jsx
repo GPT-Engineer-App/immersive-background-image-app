@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Box, Button, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import { client } from "../../lib/crud";
@@ -95,8 +94,10 @@ const AdminDashboard = () => {
           <Box className="modal-overlay" position="fixed" top="0" left="0" width="100%" height="100%" bg="rgba(0, 0, 0, 0.5)" zIndex="999" onClick={closeCalendar}></Box>
           <Box className="calendar-modal" position="fixed" top="50%" left="50%" transform="translate(-50%, -50%)" bg="white" color="black" p={4} borderRadius="md" boxShadow="md" zIndex="1000">
             <Heading size="md" mb={4}>Calendar</Heading>
-            <Calendar onChange={setSelectedDate} value={selectedDate} />
-            <Button colorScheme="red" mt={4} onClick={closeCalendar}>Close</Button>
+            <Box>
+              <Text>{formattedDate}</Text>
+              <Button colorScheme="red" mt={4} onClick={closeCalendar}>Close</Button>
+            </Box>
           </Box>
         </>
       )}
