@@ -41,6 +41,11 @@ const AdminDashboard = () => {
         });
       } catch (error) {
         console.error("Error fetching KPI data:", error);
+        setKpiData({
+          totalLeads: "Error",
+          totalSales: "Error",
+          conversionRate: "Error",
+        });
       }
     };
 
