@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Input, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { client } from "../../lib/crud";
 
