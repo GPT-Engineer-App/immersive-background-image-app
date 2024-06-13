@@ -1,11 +1,13 @@
-import { Box, Flex, Heading, Text, SimpleGrid, Button } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { format } from 'date-fns';
+import { useState, useEffect } from 'react';
+import { Box, Button, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import { client } from "../../lib/crud";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
-
 import { useAuth } from "../hooks/useAuth";
 
 const AdminDashboard = () => {
@@ -24,6 +26,7 @@ const AdminDashboard = () => {
     conversionRate: 0,
   });
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
     const fetchKpiData = async () => {
@@ -48,6 +51,7 @@ const AdminDashboard = () => {
 
   const openCalendar = () => setIsCalendarOpen(true);
   const closeCalendar = () => setIsCalendarOpen(false);
+  const formattedDate = format(selectedDate, 'dd-MM-yyyy');
 
   return (
     <Box bg="gray.100">
@@ -77,7 +81,8 @@ const AdminDashboard = () => {
           <AdminCard title="Sales Analytics and Reports">
             <Text color="black">[Charts and Graphs]</Text>
           </AdminCard>
-          <AdminCard title="Calendar" mt={4}>
+          <AdminCard title="Calendar Widget">
+            <Text color="black">{formattedDate}</Text>
             <Button colorScheme="blue" onClick={openCalendar}>Open Calendar</Button>
           </AdminCard>
           <AdminCard title="Notification Center">
@@ -91,7 +96,7 @@ const AdminDashboard = () => {
           <Box className="modal-overlay" position="fixed" top="0" left="0" width="100%" height="100%" bg="rgba(0, 0, 0, 0.5)" zIndex="999" onClick={closeCalendar}></Box>
           <Box className="calendar-modal" position="fixed" top="50%" left="50%" transform="translate(-50%, -50%)" bg="white" color="black" p={4} borderRadius="md" boxShadow="md" zIndex="1000">
             <Heading size="md" mb={4}>Calendar</Heading>
-            <Box id="calendar">[Calendar Component]</Box>
+            <Calendar onChange={setSelectedDate} value={selectedDate} />
             <Button colorScheme="red" mt={4} onClick={closeCalendar}>Close</Button>
           </Box>
         </>
