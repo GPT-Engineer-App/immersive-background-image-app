@@ -5,7 +5,6 @@ import AdminNavbar from "../components/AdminNavbar";
 import { client } from "../../lib/crud";
 import AdminSidebar from "../components/AdminSidebar";
 import AdminCard from "../components/AdminCard";
-
 import { useAuth } from "../hooks/useAuth";
 
 const AdminDashboard = () => {
@@ -23,6 +22,7 @@ const AdminDashboard = () => {
     totalSales: 0,
     conversionRate: 0,
   });
+  const [currentDate, setCurrentDate] = useState("");
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   useEffect(() => {
@@ -44,6 +44,14 @@ const AdminDashboard = () => {
     };
 
     fetchKpiData();
+  }, []);
+
+  useEffect(() => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = today.getFullYear();
+    setCurrentDate(`${day}-${month}-${year}`);
   }, []);
 
   const openCalendar = () => setIsCalendarOpen(true);
@@ -78,7 +86,7 @@ const AdminDashboard = () => {
             <Text color="black">[Charts and Graphs]</Text>
           </AdminCard>
           <AdminCard title="Calendar" mt={4}>
-            <Button colorScheme="blue" onClick={openCalendar}>Open Calendar</Button>
+            <Button colorScheme="blue" onClick={openCalendar}>{currentDate}</Button>
           </AdminCard>
           <AdminCard title="Notification Center">
             <Text color="black">[Notifications]</Text>
