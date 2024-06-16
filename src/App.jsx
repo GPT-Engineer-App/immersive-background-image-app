@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login.jsx'; // Ensure the correct file extension
-import AdminDashboard from './components/AdminDashboard';
-import SalesManagerDashboard from './components/SalesManagerDashboard';
-import SalesmanDashboard from './components/SalesmanDashboard';
+import Login from './components/Login.jsx';
+import AdminDashboard from './components/AdminDashboard.jsx';
+import SalesManagerDashboard from './components/SalesManagerDashboard.jsx';
+import SalesmanDashboard from './components/SalesmanDashboard.jsx';
 
 function App() {
   // Placeholder for authentication state
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} /> {/* Use the new Login component */}
+        <Route path="/" element={<Login />} />
         {isAuthenticated && userRole === 'admin' && <Route path="/admin-dashboard" element={<AdminDashboard />} />}
         {isAuthenticated && userRole === 'sales-manager' && <Route path="/sales-manager-dashboard" element={<SalesManagerDashboard />} />}
         {isAuthenticated && userRole === 'salesman' && <Route path="/salesman-dashboard" element={<SalesmanDashboard />} />}
