@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import AdminDashboard from './components/AdminDashboard';
 
@@ -9,13 +9,13 @@ function App() {
 
   return (
     <Router>
-      <Switch>
+      <Routes>
         {isAuthenticated ? (
-          <Route path="/" component={AdminDashboard} />
+          <Route path="/" element={<AdminDashboard />} />
         ) : (
-          <Route path="/" component={LoginPage} />
+          <Route path="/" element={<LoginPage />} />
         )}
-      </Switch>
+      </Routes>
     </Router>
   );
 }
