@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login'; // Import the consolidated Login component
+import Login from './components/Login.jsx'; // Ensure the correct file extension
 import AdminDashboard from './components/AdminDashboard';
 import SalesManagerDashboard from './components/SalesManagerDashboard';
 import SalesmanDashboard from './components/SalesmanDashboard';
