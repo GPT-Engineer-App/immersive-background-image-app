@@ -213,7 +213,6 @@
             margin-bottom: 20px;
             border-radius: 10px;
         }
-        /* High-tech Calendar Button */
         .calendar-button {
             padding: 15px 30px;
             background-color: #00ff00;
@@ -229,7 +228,6 @@
             background-color: #00cc00;
             box-shadow: 0 0 20px #00cc00;
         }
-        /* Calendar Modal */
         .calendar-modal {
             display: none;
             position: fixed;
@@ -371,8 +369,7 @@
             <div class="card">
                 <h2>Sales Targets and Achievements</h2>
                 <p>[Progress Bars and Metrics]</p>
-            </div>
-            <div class="card">
+                       <div class="card">
                 <h2>Notification Center</h2>
                 <p>[Notifications]</p>
             </div>
@@ -416,26 +413,6 @@
                 <h2>Notification Center</h2>
                 <p>[Notifications]</p>
             </div>
-        </div>
-    </
-    </div>
-    <!-- Salesman Dashboard Continued -->
-    <div class="content">
-        <div class="card">
-            <h2>Sales Metrics and Performance Tracking</h2>
-            <p>[Charts and Graphs]</p>
-        </div>
-        <div class="card">
-            <h2>Calendar</h2>
-            <button class="calendar-button" onclick="openCalendar()">Open Calendar</button>
-        </div>
-        <div class="card">
-            <h2>New Lead Addition and Updating Existing Leads</h2>
-            <p>[Forms for Adding/Updating]</p>
-        </div>
-        <div class="card">
-            <h2>Notification Center</h2>
-            <p>[Notifications]</p>
         </div>
     </div>
 
