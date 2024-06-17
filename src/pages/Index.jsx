@@ -1,16 +1,14 @@
-import { Box, Button, Flex, Heading, Input, Text, Link } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Input, Link, Text } from "@chakra-ui/react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 
-const Login = () => {
+const Index = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [greeting, setGreeting] = useState("");
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -19,11 +17,7 @@ const Login = () => {
 
   const handleLogin = () => {
     if (username === "admin" && password === "password123") {
-      login({ username, role: "admin" });
-    } else if (username === "manager" && password === "password123") {
-      login({ username, role: "manager" });
-    } else if (username === "salesman" && password === "password123") {
-      login({ username, role: "salesman" });
+      navigate("/profile");
     } else {
       setErrorMessage("Invalid username or password");
     }
@@ -97,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Index;

@@ -1,44 +1,43 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import AdminNavbar from "../components/AdminNavbar";
+import AdminSidebar from "../components/AdminSidebar";
+import AdminCard from "../components/AdminCard";
 
 const SalesManagerDashboard = () => {
   return (
     <Box>
+      <AdminNavbar />
+
       <Flex className="main-content" p={4}>
+        <AdminSidebar />
+
         <Box className="content" flex="1" p={4}>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>KPI Summary</Heading>
+          <AdminCard title="KPI Summary">
             <Text>Total Sales: $XXX</Text>
             <Text>Conversion Rate: XX%</Text>
             <Text>Average Deal Size: $XXX</Text>
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Recent Leads</Heading>
+          </AdminCard>
+          <AdminCard title="Recent Leads">
             [Recent Leads List]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Sales Pipeline</Heading>
+          </AdminCard>
+          <AdminCard title="Sales Pipeline">
             [Sales Pipeline Visualization]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Upcoming Appointments/Tasks</Heading>
+          </AdminCard>
+          <AdminCard title="Upcoming Appointments/Tasks">
             [Upcoming Appointments/Tasks List]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Salesperson Performance</Heading>
+          </AdminCard>
+          <AdminCard title="Salesperson Performance">
             [Salesperson Performance Metrics]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Lead Source Performance</Heading>
+          </AdminCard>
+          <AdminCard title="Lead Source Performance">
             [Lead Source Performance Visualization]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Lead Assignment</Heading>
+          </AdminCard>
+          <AdminCard title="Lead Assignment">
             [Lead Assignment Status]
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Email Marketing</Heading>
+          </AdminCard>
+          <AdminCard title="Email Marketing">
             [Upcoming Automated Marketing Emails]
-          </Box>
+          </AdminCard>
         </Box>
       </Flex>
     </Box>

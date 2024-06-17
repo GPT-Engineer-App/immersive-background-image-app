@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import SalesmanNavbar from "../components/SalesmanNavbar";
 import SalesmanSidebar from "../components/SalesmanSidebar";
+import AdminCard from "../components/AdminCard";
 
 import { client } from "../../lib/crud";
 
@@ -41,39 +42,31 @@ const SalesmanDashboard = () => {
 
         <Box className="content" flex="1" p={4}>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
-            <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-              <Heading size="md" mb={2}>Number of Leads</Heading>
+            <AdminCard title="Number of Leads">
               <Text color="black">{kpiData.numberOfLeads}</Text>
-            </Box>
-            <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-              <Heading size="md" mb={2}>Conversion Rate</Heading>
+            </AdminCard>
+            <AdminCard title="Conversion Rate">
               <Text color="black">{kpiData.conversionRate}%</Text>
-            </Box>
-            <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-              <Heading size="md" mb={2}>Total Sales</Heading>
+            </AdminCard>
+            <AdminCard title="Total Sales">
               <Text color="black">{kpiData.totalSales}</Text>
-            </Box>
+            </AdminCard>
           </SimpleGrid>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Recent Leads</Heading>
+          <AdminCard title="Recent Leads">
             <Text color="black">[Recent Leads List]</Text>
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Sales Pipeline</Heading>
+          </AdminCard>
+          <AdminCard title="Sales Pipeline">
             <Text color="black">[Sales Pipeline Visualization]</Text>
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Upcoming Appointments/Tasks</Heading>
+          </AdminCard>
+          <AdminCard title="Upcoming Appointments/Tasks">
             <Text color="black">[Upcoming Appointments/Tasks List]</Text>
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Lead Management</Heading>
+          </AdminCard>
+          <AdminCard title="Lead Management">
             <Text color="black">[Lead Management Actions]</Text>
-          </Box>
-          <Box bg="gray.600" p={4} mb={4} borderRadius="md">
-            <Heading size="md" mb={2}>Customer Interaction</Heading>
+          </AdminCard>
+          <AdminCard title="Customer Interaction">
             <Text color="black">[Customer Interaction Tracking]</Text>
-          </Box>
+          </AdminCard>
         </Box>
       </Flex>
     </Box>
